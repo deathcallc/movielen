@@ -1,0 +1,7 @@
+#ifndef CONFIGURATION_H
+#define CONFIGURATION_H
+
+#define NODE_NUM 34546
+#define EDGE_NUM 421578
+
+#endif
