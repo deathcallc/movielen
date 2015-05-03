@@ -3,7 +3,7 @@
 
 #include "../../Eigen/Sparse"
 
-typedef Eigen::SparseMatrix<int> SpMat;
+typedef Eigen::SparseMatrix<short> SpMat;
 
 class SpMatrix
 {
@@ -12,6 +12,6 @@ private:
 public:
 	SpMatrix(int x, int y);
 	int get(int x, int y);
-	void set(int x, int y, int val);
+	void set(int x, int y, short val);
 };
 #endif

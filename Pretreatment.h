@@ -2,13 +2,12 @@
 #define PRETREATMENT_H
 
 #include <string.h>
+#include "Model/SparseMatri/SparseMatriOpt.h"
 
 class Pretreatment
 {
 public:
-	void paperDatePretreat(std::string path);
-	void countPaper(std::string path);
-	void authorDatePretreat(std::string path);
+	void createRatingMatrix(SpMatrix &sp, std::string path);
 };
 
 
