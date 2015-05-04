@@ -23,10 +23,10 @@ void Reader::split(string str, string p, vector<string>& vec)
 {
 	string b, l;
 	string::size_type pos;
-	while((pos = str.find(p.c_str())) != str.npos)
+	while((pos = str.find(p.c_str())) != string::npos)
 	{
 		b = str.substr(0, pos);
-		str = str.substr(pos+1, -1);
+		str = str.substr(pos+1, string::npos);
 		vec.push_back(b);
 	}
 	vec.push_back(str);

@@ -1,5 +1,5 @@
-#ifndef MOVIES_H
-#define MOVIES_H
+#ifndef MOVIE_H
+#define MOVIE_H
 
 #include <iostream>
 #include <string.h>
@@ -44,7 +44,7 @@ const std::string MOVIES_THRILLER = "Thriller";
 const std::string MOVIES_WAR = "War";
 const std::string MOVIES_WESTERN = "Western";
 
-class Movies
+class Movie
 {
 private:
 	int movieId;
@@ -53,14 +53,14 @@ private:
 
 	MOVIES_FLAG getFlag(const std::string flag);
 public:
-	Movies();
+	Movie();
 	void setMovieId(const int id);
 	int getMovieId();
 	void setTitle(const std::string t);
 	std::string getTitle();
 	void setGenres(const MOVIES_FLAG flag);
-	void addGenresFlag(const MOVIES_FLAG flag);
-	void addGenresFlag(const std::string flag);
+	void addGenresFlag(const MOVIES_FLAG f);
+	void addGenresFlag(const std::string &f);
 	void removeGenresFlag(const MOVIES_FLAG flag);
 	void removeGenresFlag(const std::string flag);
 	bool hasGenresFlag(const MOVIES_FLAG flag);
@@ -68,7 +68,7 @@ public:
 	MOVIES_FLAG getGenres();
 
 	void clear();
-	friend std::ostream& operator<<(std::ostream& out, Movies& l);
+	friend std::ostream& operator<<(std::ostream& out, Movie& l);
 	
 };
 

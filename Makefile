@@ -4,7 +4,7 @@ CFG_PATH = ./Cfg
 ENTITY_PATH = ./Entity
 
 VPATH = $(MODEL_SPARSE_PATH):$(SERVICE_PATH):$(ENTITY_PATH)
-OBJ = test.o Link.o Movies.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o
+OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o MovieReader.o
 
 test : $(OBJ)
 	g++ $(OBJ) -o test
@@ -24,6 +24,9 @@ SparseMatriOpt.o : SparseMatriOpt.cpp SparseMatriOpt.h
 RatingReader.o : RatingReader.cpp RatingReader.h
 	g++ -c $(SERVICE_PATH)/RatingReader.cpp
 
+MovieReader.o : MovieReader.cpp MovieReader.h
+	g++ -c $(SERVICE_PATH)/MovieReader.cpp
+
 Reader.o : Reader.cpp Reader.h
 	g++ -c $(SERVICE_PATH)/Reader.cpp
 
@@ -33,8 +36,8 @@ Rating.o : Rating.cpp Rating.h
 Link.o : Link.cpp Link.h
 	g++ -c $(ENTITY_PATH)/Link.cpp
 
-Movies.o : Movies.cpp Movies.h
-	g++ -c $(ENTITY_PATH)/Movies.cpp
+Movie.o : Movie.cpp Movie.h
+	g++ -c $(ENTITY_PATH)/Movie.cpp
 
 .PHONY : clean
 clean :

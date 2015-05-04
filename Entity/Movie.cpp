@@ -1,15 +1,15 @@
 #include <iostream>
 #include <string.h>
-#include "Movies.h"
+#include "Movie.h"
 
 using namespace std;
 
-Movies::Movies()
+Movie::Movie()
 {
 	clear();
 }
 
-MOVIES_FLAG Movies::getFlag(const std::string flag)
+MOVIES_FLAG Movie::getFlag(const string flag)
 {
 	if(MOVIES_ACTION == flag)
 	{
@@ -87,78 +87,78 @@ MOVIES_FLAG Movies::getFlag(const std::string flag)
 	
 }
 
-void Movies::setMovieId(const int id)
+void Movie::setMovieId(const int id)
 {
-	Movies::movieId = id;
+	Movie::movieId = id;
 }
 
-int Movies::getMovieId()
+int Movie::getMovieId()
 {
-	return Movies::movieId;
+	return Movie::movieId;
 }
 
-void Movies::setTitle(const string t)
+void Movie::setTitle(const string t)
 {
-	Movies::title = t;
+	Movie::title = t;
 }
 
-string Movies::getTitle()
+string Movie::getTitle()
 {
-	return Movies::title;
+	return Movie::title;
 }
 
-void Movies::setGenres(const MOVIES_FLAG flag)
+void Movie::setGenres(const MOVIES_FLAG flag)
 {
-	Movies::genres = flag;
+	Movie::genres = flag;
 }
 
-void Movies::addGenresFlag(const MOVIES_FLAG flag)
+void Movie::addGenresFlag(const MOVIES_FLAG f)
 {
-	Movies::genres |= flag;
+	Movie::genres |= f;
 }
 
-void Movies::addGenresFlag(const string flag)
+void Movie::addGenresFlag(const string &f)
 {
-	return addGenresFlag(getFlag(flag));
+	return addGenresFlag(getFlag(f));
 }
 
-void Movies::removeGenresFlag(const MOVIES_FLAG flag)
+void Movie::removeGenresFlag(const MOVIES_FLAG flag)
 {
-	Movies::genres &= (~flag);
+	Movie::genres &= (~flag);
 }
 
-void Movies::removeGenresFlag(const string flag)
+void Movie::removeGenresFlag(const string flag)
 {
 	return removeGenresFlag(getFlag(flag));
 }
 
-bool Movies::hasGenresFlag(const MOVIES_FLAG flag)
+bool Movie::hasGenresFlag(const MOVIES_FLAG flag)
 {
-	if((flag & Movies::genres) != 0)
+	if((flag & Movie::genres) != 0)
 	{
 		return true;
 	}
 	return false;
 }
 
-bool Movies::hasGenresFlag(const string flag)
+bool Movie::hasGenresFlag(const string flag)
 {
 	return hasGenresFlag(getFlag(flag));
 }
 
-MOVIES_FLAG Movies::getGenres()
+MOVIES_FLAG Movie::getGenres()
 {
-	return Movies::genres;
+	return Movie::genres;
 }
 
-void Movies::clear()
+void Movie::clear()
 {
-	Movies::movieId = -1;
-	Movies::title = "";
-	Movies::genres = 0;
+	Movie::movieId = -1;
+	Movie::title = "";
+	Movie::genres = 0;
 }
 
-ostream& operator<<(ostream& out, Movies& l)
+ostream& operator<<(ostream& out, Movie& l)
 {
 	out<<"movieId : "<<l.movieId<<endl;
 	out<<"title : "<<l.title<<endl;
