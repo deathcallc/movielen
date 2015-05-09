@@ -2,12 +2,12 @@
 #define PRETREATMENT_H
 
 #include <string.h>
-#include "Model/SparseMatri/SparseMatriOpt.h"
+#include "Model/Matrix/IMatrixOpt.h"
 
 class Pretreatment
 {
 public:
-	void createRatingMatrix(SpMatrix &sp, std::string path);
+	void createRatingMatrix(IMatrixOpt* sp, std::string path);
 };
 
 

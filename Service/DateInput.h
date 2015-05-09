@@ -2,12 +2,13 @@
 #define DATEINPUT_H
 
 
-#include "../Model/SparseMatri/SparseMatriOpt.h"
+#include "../Model/Matrix/SparseMatriOpt.h"
 #include <string.h>
 #include <fstream>
 
 class DateInput
 {
+/*
 private:
 	SpMatrix sp;
 
@@ -16,7 +17,7 @@ public:
 	bool readDate(std::string filePath);
 	bool readDate(std::ifstream& in);
 	SpMatrix& getSpMatrix();
-
+*/
 };
 
 
