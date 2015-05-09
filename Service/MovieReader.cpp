@@ -25,22 +25,16 @@ bool MovieReader::getNextMovie(Movie& m)
 		vec.clear();
 
 		getline(fin,str);
-		str = str.substr(0,str.length() - 1);
+		//str = str.substr(0,str.length() - 1);
 		
-		split(str, ",", vec);
-		/*
-		while(s!= null)
-		{
-			vec.push_back(s);
-			s = strtok(str.c_str(), ',');
-		}*/
+		split(str, "::", vec);
 
 		if(vec.size() < 3)
 		{
 			return false;
 		}
-
 		
+		/*
 
 		if(vec.size() > 3)
 		{
@@ -56,9 +50,12 @@ bool MovieReader::getNextMovie(Movie& m)
 			vec.push_back(title);
 			vec.push_back(gen);
 		}
-
+*/
 		cout<<vec[0]<<endl;
-		
+
+		cout<<vec[1]<<endl;
+		cout<<vec[2]<<endl;
+	
 		m.setMovieId(atoi(vec[0].c_str()));
 		m.setTitle(vec[1]);
 			

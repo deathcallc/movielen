@@ -3,7 +3,7 @@
 #include <fstream>
 
 using namespace std;
-
+/*
 DateInput::DateInput(int x, int y):sp(x,y)
 {
 }
@@ -36,7 +36,7 @@ bool DateInput::readDate(string filePath)
 	return true;
 }
 
-SpMatrix& DateInput::getSpMatrix()
+SpMatrix<short>& DateInput::getSpMatrix()
 {
 	return sp;
-}
+}*/

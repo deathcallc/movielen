@@ -24,7 +24,7 @@ bool RatingReader::getNextRating(Rating& p)
 		vec.clear();
 		getline(fin,str);
 		
-		split(str, ",", vec);
+		split(str, "::", vec);
 
 		if(vec.size() < 4)
 		{

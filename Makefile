@@ -1,10 +1,10 @@
-MODEL_SPARSE_PATH = ./Model/SparseMatri
+MODEL_MATRIX_PATH = ./Model/Matrix
 SERVICE_PATH = ./Service
 CFG_PATH = ./Cfg
 ENTITY_PATH = ./Entity
 
-VPATH = $(MODEL_SPARSE_PATH):$(SERVICE_PATH):$(ENTITY_PATH)
-OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o MovieReader.o
+VPATH = $(MODEL_MATRIX_PATH):$(SERVICE_PATH):$(ENTITY_PATH)
+OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o MovieReader.o MatrixOpt.o
 
 test : $(OBJ)
 	g++ $(OBJ) -o test
@@ -19,7 +19,9 @@ DateInput.o : SparseMatriOpt.h SparseMatriOpt.cpp DateInput.cpp DateInput.h
 	g++ -c $(SERVICE_PATH)/DateInput.cpp
 
 SparseMatriOpt.o : SparseMatriOpt.cpp SparseMatriOpt.h
-	g++ -c $(MODEL_SPARSE_PATH)/SparseMatriOpt.cpp
+	g++ -c $(MODEL_MATRIX_PATH)/SparseMatriOpt.cpp
+MatrixOpt.o : MatrixOpt.cpp MatrixOpt.h
+	g++ -c $(MODEL_MATRIX_PATH)/MatrixOpt.cpp
 
 RatingReader.o : RatingReader.cpp RatingReader.h
 	g++ -c $(SERVICE_PATH)/RatingReader.cpp
