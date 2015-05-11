@@ -12,9 +12,9 @@ const int sparsity = 10;
 class Cluster
 {
 private:
-	void MP(IMatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef);
+	void MP(MatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef);
 public:
-	void createSemMatrix(IMatrixOpt* doc, IMatrixOpt* sem);
+	void createSemMatrix(MatrixOpt* doc, MatrixOpt* sem);
 };
 
 

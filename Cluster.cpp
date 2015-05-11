@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void Cluster::MP(IMatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef)
+void Cluster::MP(MatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef)
 {
 //	cout<<"norm: "<<norm<<endl;
 	float max = 0;
@@ -46,16 +46,22 @@ void Cluster::MP(IMatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef)
 	}
 }
 
-void Cluster::createSemMatrix(IMatrixOpt* doc, IMatrixOpt* sem)
+void Cluster::createSemMatrix(MatrixOpt* doc, MatrixOpt* sem)
 {
 	VecX tar;
+	MatrixOpt tmp(doc->rows(), doc->cols());
+//	doc->print();
+//	cout<<endl;
+	clone(tmp, (*doc));
+	tmp.normalize();
+//	tmp.print();
 
 	for(int i = 0; i < doc->cols(); i++)
 	{
 		cout<<"i= "<<i<<endl;
 		VecX v(VecX::Zero(sem->cols()));
 		doc->col(tar,i);
-		MP(doc, i, 0, tar, v);
+		MP(&tmp, i, 0, tar, v);
 		sem->setCol(v,i);
 	}
 }

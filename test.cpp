@@ -37,19 +37,19 @@ int main()
 			n++;
 		}
 	}
-	im->normalize();
-	im->print();
+//	im->normalize();
+//	im->print();
 
-	cout<<endl;
+//	cout<<endl;
 
 
-	MatrixOpt a(4,6);
+/*	MatrixOpt a(4,6);
 	clone(a, sp);
-	a.print();
-	/*
+	a.print();*/
+	
 	MatrixOpt sem(6,6);
 	Cluster cl;
-	cl.createSemMatrix(im, &sem);
+	cl.createSemMatrix(&sp, &sem);
 	cout<<"result:"<<endl;
 	sem.print();
 //	cout<<"rows: "<<im->rows()<<" col:"<<im->cols()<<endl;
