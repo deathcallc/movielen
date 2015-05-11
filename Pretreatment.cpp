@@ -17,10 +17,10 @@ void Pretreatment::createRatingMatrix(IMatrixOpt* sp, string path)
 	RatingReader rd(path);
 	while(rd.getNextRating(r))
 	{
-		short rat = (short)(r.getRating() * 10);
+//		short rat = (short)(r.getRating() * 10);
 //		cout<<r<<endl;
 		cout<<"pre:"<<r.getUserId()<<endl;
-		sp->set(r.getMovieId()-1,r.getUserId()-1, rat);
+		sp->set(r.getMovieId()-1,r.getUserId()-1, r.getRating());
 //		sp->set(r.getUserId(),r.getMovieId(), rat);
 	}
 }

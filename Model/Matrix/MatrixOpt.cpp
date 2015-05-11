@@ -5,16 +5,21 @@
 
 using namespace std;
 
-MatrixOpt::MatrixOpt(int x, int y):mat(x,y)
+MatrixOpt::MatrixOpt(int x, int y):mat(MatrixSX::Zero(x,y))
 {
 	
 }
 
-short MatrixOpt::get(int x, int y)
+MatrixSX& MatrixOpt::getMatrix()
+{
+	return mat;
+}
+
+float MatrixOpt::get(int x, int y)
 {
 	return mat(x,y);
 }
-void MatrixOpt::set(int x, int y, short val)
+void MatrixOpt::set(int x, int y, float val)
 {
 	mat(x,y) = val;
 }
@@ -29,6 +34,34 @@ int MatrixOpt::cols()
 	return MatrixOpt::mat.cols();
 }
 
+void MatrixOpt::col(VecX& vec, int index)
+{
+	vec = MatrixOpt::mat.col(index);
+}
+
+void MatrixOpt::setCol(VecX& vec, int index)
+{
+	mat.col(index) = vec;
+}
+
+void MatrixOpt::print()
+{
+	cout<<mat<<endl;
+}
+
+void MatrixOpt::normalize(int index = -1)
+{
+	if(index > 0 || index < mat.cols())
+	{
+		mat.col(index).normalize();
+		return;
+	}
+	for(int i = 0; i < mat.cols(); i++)
+	{
+		mat.col(i).normalize();
+	}
+}
+
 void MatrixOpt::printToFile()
 {
 	FILE* fout = fopen("./matrix","w+");
@@ -39,7 +72,7 @@ void MatrixOpt::printToFile()
 		for(y = 0; y < cols(); y++)
 		{
 //			cout<<"x:"<<x<<"  y:"<<y<<"  val:"<<get(x,y)<<endl;
-			fprintf(fout,"%-4d",get(x,y));
+			fprintf(fout,"%-6.3f",get(x,y));
 		}
 		fprintf(fout,"\n");
 	}

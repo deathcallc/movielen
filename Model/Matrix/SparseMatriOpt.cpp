@@ -10,12 +10,12 @@ SpMatrix::SpMatrix(int x, int y):mat(x,y)
 	
 }
 
-short SpMatrix::get(int x, int y)
+float SpMatrix::get(int x, int y)
 {
 	return SpMatrix::mat.coeffRef(x,y);
 }
 
-void SpMatrix::set(int x, int y, short val)
+void SpMatrix::set(int x, int y, float val)
 {
 	SpMatrix::mat.insert(x,y) = val;
 }
@@ -30,6 +30,22 @@ int SpMatrix::cols()
 	return SpMatrix::mat.cols();
 }
 
+void SpMatrix::col(VecX& vec, int index)
+{
+}
+
+void SpMatrix::setCol(VecX& vec, int index)
+{
+}
+
+void SpMatrix::print()
+{
+}
+
+void SpMatrix::normalize(int index = -1)
+{
+}
+
 void SpMatrix::printToFile()
 {
 	FILE* fout = fopen("./matrix","w+");
@@ -39,8 +55,8 @@ void SpMatrix::printToFile()
 		cout<<x<<endl;
 		for(y = 0; y < cols(); y++)
 		{
-			cout<<"x:"<<x<<"  y:"<<y<<"  val:"<<get(x,y)<<endl;
-//			fprintf(fout,"%-4d",get(x,y));
+//			cout<<"x:"<<x<<"  y:"<<y<<"  val:"<<get(x,y)<<endl;
+			fprintf(fout,"%-6.3f",get(x,y));
 		}
 	}
 	fclose(fout);
