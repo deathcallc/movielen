@@ -17,5 +17,6 @@ public:
 	virtual void col(VecX& vec, int index) = 0;
 	virtual void print() = 0;
 	virtual void printToFile() = 0;
+	virtual void normalize(int index = -1) = 0;
 };
 #endif

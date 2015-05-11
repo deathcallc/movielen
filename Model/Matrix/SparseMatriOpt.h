@@ -20,5 +20,6 @@ public:
 	void setCol(VecX& vec, int index);
 	void col(VecX& vec, int index);
 	void printToFile();
+	void normalize(int index);
 };
 #endif

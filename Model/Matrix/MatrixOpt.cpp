@@ -49,6 +49,21 @@ void MatrixOpt::print()
 	cout<<mat<<endl;
 }
 
+void MatrixOpt::normalize(int index)
+{
+	if(index >= 0 && index < mat.cols())
+	{
+		mat.col(index).normalize();
+	}
+	else if(index == -1)
+	{
+		for(int i = 0; i < mat.cols(); i++)
+		{
+			mat.col(i).normalize();
+		}
+	}
+}
+
 void MatrixOpt::printToFile()
 {
 	FILE* fout = fopen("./matrix","w+");
@@ -64,4 +79,9 @@ void MatrixOpt::printToFile()
 		fprintf(fout,"\n");
 	}
 	fclose(fout);
+}
+
+void clone(MatrixOpt& a, MatrixOpt& b)
+{
+	a.mat = b.mat;
 }
