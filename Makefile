@@ -4,6 +4,7 @@ CFG_PATH = ./Cfg
 ENTITY_PATH = ./Entity
 
 VPATH = $(MODEL_MATRIX_PATH):$(SERVICE_PATH):$(ENTITY_PATH)
+
 OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o MovieReader.o MatrixOpt.o Cluster.o
 
 test : $(OBJ)

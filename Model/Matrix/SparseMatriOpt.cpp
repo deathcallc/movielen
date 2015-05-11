@@ -42,10 +42,6 @@ void SpMatrix::print()
 {
 }
 
-void SpMatrix::normalize(int index = -1)
-{
-}
-
 void SpMatrix::printToFile()
 {
 	FILE* fout = fopen("./matrix","w+");

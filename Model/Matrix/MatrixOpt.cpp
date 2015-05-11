@@ -49,19 +49,6 @@ void MatrixOpt::print()
 	cout<<mat<<endl;
 }
 
-void MatrixOpt::normalize(int index = -1)
-{
-	if(index > 0 || index < mat.cols())
-	{
-		mat.col(index).normalize();
-		return;
-	}
-	for(int i = 0; i < mat.cols(); i++)
-	{
-		mat.col(i).normalize();
-	}
-}
-
 void MatrixOpt::printToFile()
 {
 	FILE* fout = fopen("./matrix","w+");
