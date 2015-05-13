@@ -6,7 +6,7 @@
 #include "Model/Matrix/MatrixOpt.h"
 
 const float MIN_RESIDUAL = 1;
-const float OP_RESIDUAL = 0.3;
+const float OP_RESIDUAL = 0.2;
 const int sparsity = 10;
 
 class Cluster

@@ -21,5 +21,7 @@ public:
 	void col(VecX& vec, int index);
 	void printToFile();
 	void normalize(int index);
+	void balance();
+	void readDateFromFile(std::string filePath);
 };
 #endif

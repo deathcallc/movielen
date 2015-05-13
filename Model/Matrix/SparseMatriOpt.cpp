@@ -10,6 +10,15 @@ SpMatrix::SpMatrix(int x, int y):mat(x,y)
 	
 }
 
+void SpMatrix::balance()
+{
+	
+}
+
+void SpMatrix::readDateFromFile(string filePath)
+{
+}
+
 float SpMatrix::get(int x, int y)
 {
 	return SpMatrix::mat.coeffRef(x,y);

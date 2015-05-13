@@ -21,7 +21,7 @@ void Cluster::MP(MatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef)
 		}
 
 		sp->col(d,i);
-		d.normalize();
+//		d.normalize();
 		dot = tar.dot(d);
 		if(abs(dot) > max)
 		{
@@ -31,7 +31,7 @@ void Cluster::MP(MatrixOpt* sp, int index, float norm, VecX& tar, VecX& coef)
 	}
 	coef(patchIndex, 0) += max;
 	sp->col(d,patchIndex);
-	d.normalize();
+//	d.normalize();
 
 	tar -= max*d;
 //	cout<<"max: "<<max<<"  index: "<<patchIndex<<"  norm:"<<norm<<endl;

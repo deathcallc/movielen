@@ -18,5 +18,7 @@ public:
 	virtual void print() = 0;
 	virtual void printToFile() = 0;
 	virtual void normalize(int index = -1) = 0;
+	virtual void balance() = 0;
+	virtual void readDateFromFile(std::string filePath) = 0;
 };
 #endif

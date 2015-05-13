@@ -22,6 +22,8 @@ public:
 	void col(VecX& vec, int index);
 	void printToFile();
 	void normalize(int index = -1);
+	void balance();
+	void readDateFromFile(std::string filePath);
 	friend void clone(MatrixOpt& a, MatrixOpt& b);
 };
 #endif

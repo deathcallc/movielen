@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
+#include <cmath>
+#include <fstream>
 
 using namespace std;
 
@@ -13,6 +15,38 @@ MatrixOpt::MatrixOpt(int x, int y):mat(MatrixSX::Zero(x,y))
 MatrixSX& MatrixOpt::getMatrix()
 {
 	return mat;
+}
+
+void MatrixOpt::readDateFromFile(string filePath)
+{
+	ifstream fin;
+	fin.open(filePath.c_str(), ios::in | ios::app | ios::binary);
+	float val;
+	string str;
+	for(int i = 0; i < mat.rows(); i++)
+	{
+		for(int j = 0; j < mat.cols(); j++)
+		{
+			fin>>str;
+			val = atof(str.c_str());
+			set(i,j,val);
+		}
+	}
+	fin.close();
+}
+
+void MatrixOpt::balance()
+{
+	float val = 0;
+	for(int i = 0; i < mat.rows(); i++)
+	{
+		for(int j = i; j < mat.cols(); j++)
+		{
+			val = abs(get(i,j)) + abs(get(j,i));
+			set(i,j,val);
+			set(j,i,val);
+		}
+	}
 }
 
 float MatrixOpt::get(int x, int y)
@@ -74,7 +108,7 @@ void MatrixOpt::printToFile()
 		for(y = 0; y < cols(); y++)
 		{
 //			cout<<"x:"<<x<<"  y:"<<y<<"  val:"<<get(x,y)<<endl;
-			fprintf(fout,"%-6.3f",get(x,y));
+			fprintf(fout,"%-11.5f",get(x,y));
 		}
 		fprintf(fout,"\n");
 	}

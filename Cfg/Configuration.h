@@ -5,17 +5,21 @@
 
 #define ONEM_DATE 1
 
-const std::string LATEST_LINKS_FILE_PATH = "/home/lxw/movielen/ml-latest/links.csv";
-const std::string LATEST_MOVIES_FILE_PATH = "/home/lxw/movielen/ml-latest/movies.csv";
-const std::string LATEST_RATING_FILE_PATH = "/home/lxw/movielen/ml-latest/ratings.csv";
-const std::string LATEST_TAGS_FILE_PATH = "/home/lxw/movielen/ml-latest/tags.csv";
+const int TEST_DATE_DIM = 30;
+const int TEST_DATE_ITEMS = 2000;
+const std::string TEST_DATE_PATH = "/home/zergling/movielen/testdate/hc30-20-15-10.txt";
+
+const std::string LATEST_LINKS_FILE_PATH = "/home/zergling/movielen/ml-latest/links.csv";
+const std::string LATEST_MOVIES_FILE_PATH = "/home/zergling/movielen/ml-latest/movies.csv";
+const std::string LATEST_RATING_FILE_PATH = "/home/zergling/movielen/ml-latest/ratings.csv";
+const std::string LATEST_TAGS_FILE_PATH = "/home/zergling/movielen/ml-latest/tags.csv";
 
 const int LATEST_MOVIE_NUM = 27800;
 const int LATEST_USER_NUM = 230000;
 
-const std::string ONEM_USERS_FILE_PATH = "/home/lxw/movielen/ml-1m/users.dat";
-const std::string ONEM_MOVIES_FILE_PATH = "/home/lxw/movielen/ml-1m/movies.dat";
-const std::string ONEM_RATING_FILE_PATH = "/home/lxw/movielen/ml-1m/ratings.dat";
+const std::string ONEM_USERS_FILE_PATH = "/home/zergling/movielen/ml-1m/users.dat";
+const std::string ONEM_MOVIES_FILE_PATH = "/home/zergling/movielen/ml-1m/movies.dat";
+const std::string ONEM_RATING_FILE_PATH = "/home/zergling/movielen/ml-1m/ratings.dat";
 
 const int ONEM_MOVIE_NUM = 3952;
 const int ONEM_USER_NUM = 6040;

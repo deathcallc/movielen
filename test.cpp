@@ -16,17 +16,12 @@ using namespace std;
 
 int main()
 {
-//	MatrixOpt sp(MOVIE_NUM, USER_NUM);
-//	MatrixOpt sem(USER_NUM, USER_NUM);
-	MatrixOpt sp(4, 6);
+/*	MatrixOpt sp(4, 6);
 	int num[24] = {1,2,1,4,5,9,
 		2,2,10,8,1,6,
 		1,8,1,4,2,6,
 		2,2,2,3,10,15};
-//	MatrixOpt as(4, 6);
-//	as = sp;
-//	as.normalize();
-//	as.print();
+
 	IMatrixOpt* im = &sp;
 	int n = 0;
 	for(int i = 0; i < im->rows(); i++)
@@ -37,21 +32,13 @@ int main()
 			n++;
 		}
 	}
-//	im->normalize();
-//	im->print();
 
-//	cout<<endl;
-
-
-/*	MatrixOpt a(4,6);
-	clone(a, sp);
-	a.print();*/
-	
 	MatrixOpt sem(6,6);
 	Cluster cl;
 	cl.createSemMatrix(&sp, &sem);
 	cout<<"result:"<<endl;
-	sem.print();
+	sem.balance();
+	sem.print();*/
 //	cout<<"rows: "<<im->rows()<<" col:"<<im->cols()<<endl;
 /*	VecX vec(7);
 	vec<<1,2,3,4,5,6,7;
@@ -68,13 +55,26 @@ int main()
 		cout<<m<<endl;
 	}
 */	
-/*	Pretreatment pre;
-	pre.createRatingMatrix(im,RATING_FILE_PATH);
+/*	MatrixOpt sp(MOVIE_NUM, USER_NUM);
+	MatrixOpt sem(USER_NUM, USER_NUM);
+	Pretreatment pre;
+	pre.createRatingMatrix(&sp,RATING_FILE_PATH);
 	
 	Cluster cl;
-	cl.createSemMatrix(im, &sem);
-	sem.printToFile();
-*/
+	cl.createSemMatrix(&sp, &sem);
+	sem.balance();
+	sem.printToFile();*/
+
+	
+	
+	MatrixOpt sp(2000, 30);
+	sp.readDateFromFile(TEST_DATE_PATH);
+	sp.print();
+
+
+
+
+
 //	pre.createRatingMatrix(im,"/home/lxw/movielen/ml-1m/t_ratings.dat");
 //	im->printToFile();
 //	pre.authorDatePretreat("/home/lxw/network/Date/e_AMiner-Author.txt");
