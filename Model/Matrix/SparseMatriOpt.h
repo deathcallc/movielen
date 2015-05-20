@@ -6,7 +6,7 @@
 
 typedef Eigen::SparseMatrix<float> SpMat;
 
-class SpMatrix:public IMatrixOpt
+class SpMatrix
 {
 private:
 	SpMat mat;
@@ -19,7 +19,7 @@ public:
 	void print();
 	void setCol(VecX& vec, int index);
 	void col(VecX& vec, int index);
-	void printToFile();
+	void printToFile(std::string path);
 	void normalize(int index);
 	void balance();
 	void readDateFromFile(std::string filePath);

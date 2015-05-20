@@ -4,7 +4,7 @@
 #include "../../Eigen/Dense"
 #include "IMatrixOpt.h"
 
-typedef Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic> MatrixSX;
+typedef Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic> MatrixSX;
 
 class MatrixOpt:public IMatrixOpt
 {
@@ -13,17 +13,23 @@ private:
 public:
 	MatrixOpt(int x, int y);
 	MatrixSX& getMatrix();
-	float get(int x, int y);
-	void set(int x, int y, float val);
+	void transpose();
+	double get(int x, int y);
+	void set(int x, int y, double val);
 	int rows();
 	int cols();
 	void print();
 	void setCol(VecX& vec, int index);
 	void col(VecX& vec, int index);
-	void printToFile();
+	void printToFile(std::string path);
 	void normalize(int index = -1);
 	void balance();
 	void readDateFromFile(std::string filePath);
+	void genLaplacianMatrix(MatrixOpt& la);
+	void initMatrix(int* num);
+
+	VecX eigenvalues();
+	void eigenvectors(MatrixOpt& ev);
 	friend void clone(MatrixOpt& a, MatrixOpt& b);
 };
 #endif

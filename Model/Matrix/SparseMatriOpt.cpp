@@ -55,7 +55,7 @@ void SpMatrix::normalize(int index = -1)
 {
 }
 
-void SpMatrix::printToFile()
+void SpMatrix::printToFile(string path)
 {
 	FILE* fout = fopen("./matrix","w+");
 	int x = 0, y = 0;

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdlib.h>
 #include <fstream>
 #include "Model/Matrix/SparseMatriOpt.h"
 #include "Model/Matrix/IMatrixOpt.h"
@@ -55,33 +56,77 @@ int main()
 		cout<<m<<endl;
 	}
 */	
+/*	MatrixOpt sp(2000, 2000);
+	sp.readDateFromFile("/home/zergling/movielen/program/movielen/matrixtest");
+	Eigen::VectorXf xf = sp.eigenvalues();
+	FILE* fout = fopen("./eigenvalues","w+");
+	for(int i = 0; i < xf.rows(); i++)
+	{
+		fprintf(fout,"%f ",xf[i]);
+	}
+	fclose(fout);*/
+	
+/*	int num[9] = {1,1,0,4,3,0,1,0,2};
+	MatrixOpt la(3,3);
+	MatrixOpt ma(3,3);
+	ma.initMatrix(num);
+//	ma.print();
+	MatrixOpt vc(3,3);
+	ma.eigenvectors(vc);
+	vc.printToFile("./EigenVector.txt");
+	cout<<endl;
+*/
+/*	MatrixOpt ma(USER_NUM, USER_NUM);
+	MatrixOpt la(USER_NUM, USER_NUM);
+	ma.readDateFromFile("/home/zergling/movielen/program/matrix");
+	cout<<"Get Matrix!"<<endl;
+	ma.genLaplacianMatrix(la);
+	cout<<"Get Laplacian!"<<endl;
+	MatrixOpt vec(USER_NUM, USER_NUM);
+	la.eigenvectors(vec);
+	
+	vec.printToFile("./EigenVector.txt");
+//	VecX xf = la.eigenvalues();
+	cout<<"Get eigenvectors!"<<endl;*/
+
+	
+
+	/*
+	FILE* fout = fopen("./eigenvalues","w+");
+	for(int i = 0; i < xf.rows(); i++)
+	{
+		if(xf[i] < 0.0000001)
+		{
+			xf[i] = 0;
+		}
+		fprintf(fout,"%f ",xf[i]);
+	}
+	fclose(fout);
+	cout<<"Finish!"<<endl;*/
+//	sp.transpose();
+//	MatrixOpt sem(2000,2000);
+//	sp.print(); 
 /*	MatrixOpt sp(MOVIE_NUM, USER_NUM);
 	MatrixOpt sem(USER_NUM, USER_NUM);
-	Pretreatment pre;
-	pre.createRatingMatrix(&sp,RATING_FILE_PATH);
+	Pretreatment pre
+	pre.createRatingMatrix(&sp,RATING_FILE_PATH);*/
 	
-	Cluster cl;
+/*	Cluster cl;
 	cl.createSemMatrix(&sp, &sem);
 	sem.balance();
 	sem.printToFile();*/
 
-	
+
+	Cluster cl;
+	cl.genTopkEigenVector("./eigenvalues","./EigenVector.txt","./submatrix",USER_NUM,USER_NUM,10);
+/*	
 	
 	MatrixOpt sp(2000, 30);
 	sp.readDateFromFile(TEST_DATE_PATH);
 	sp.print();
 
+*/
 
-
-
-
-//	pre.createRatingMatrix(im,"/home/lxw/movielen/ml-1m/t_ratings.dat");
-//	im->printToFile();
-//	pre.authorDatePretreat("/home/lxw/network/Date/e_AMiner-Author.txt");
-//	pre.authorDatePretreat(AUTHOR_FILE_PATH);
-//	pre.paperDatePretreat("/home/lxw/network/Date/e_AMiner-Paper.txt");
-//	pre.countPaper("/home/lxw/network/Date/e_AMiner-Paper.txt");
-//	pre.countPaper(PAPER_FILE_PATH);
 	
 	return 0;
 }

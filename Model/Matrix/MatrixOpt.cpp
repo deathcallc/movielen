@@ -12,16 +12,61 @@ MatrixOpt::MatrixOpt(int x, int y):mat(MatrixSX::Zero(x,y))
 	
 }
 
+void MatrixOpt::initMatrix(int* num)
+{
+	int n = 0;
+	for(int i = 0; i < mat.rows(); i++)
+	{
+		for(int j = 0; j < mat.cols(); j++)
+		{
+			set(i,j,num[n]);
+			n++;
+		}
+	}
+}
+
+void MatrixOpt::eigenvectors(MatrixOpt& ev)
+{
+	Eigen::EigenSolver<MatrixSX> es(mat);
+	ev.mat = es.eigenvectors().real();
+}
+
+void MatrixOpt::genLaplacianMatrix(MatrixOpt& la)
+{
+	for(int i = 0; i < mat.rows(); i++)
+	{
+		la.set(i,i,0);
+		for(int j = 0; j < mat.cols(); j++)
+		{
+			la.set(i,i,la.get(i,i) + get(i,j));
+		}
+	}
+	la.mat -= mat;
+}
+
 MatrixSX& MatrixOpt::getMatrix()
 {
 	return mat;
+}
+
+VecX MatrixOpt::eigenvalues()
+{
+	return mat.eigenvalues().real();
+}
+
+void MatrixOpt::transpose()
+{
+	MatrixSX tmp(mat.cols(), mat.rows());
+	tmp = mat.transpose();
+	mat.resize(tmp.rows(), tmp.cols());
+	mat = tmp;
 }
 
 void MatrixOpt::readDateFromFile(string filePath)
 {
 	ifstream fin;
 	fin.open(filePath.c_str(), ios::in | ios::app | ios::binary);
-	float val;
+	double val;
 	string str;
 	for(int i = 0; i < mat.rows(); i++)
 	{
@@ -49,11 +94,11 @@ void MatrixOpt::balance()
 	}
 }
 
-float MatrixOpt::get(int x, int y)
+double MatrixOpt::get(int x, int y)
 {
 	return mat(x,y);
 }
-void MatrixOpt::set(int x, int y, float val)
+void MatrixOpt::set(int x, int y, double val)
 {
 	mat(x,y) = val;
 }
@@ -98,9 +143,9 @@ void MatrixOpt::normalize(int index)
 	}
 }
 
-void MatrixOpt::printToFile()
+void MatrixOpt::printToFile(string path)
 {
-	FILE* fout = fopen("./matrix","w+");
+	FILE* fout = fopen(path.c_str(),"w+");
 	int x = 0, y = 0;
 	for(x = 0; x < rows(); x++)
 	{
