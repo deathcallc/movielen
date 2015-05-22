@@ -11,7 +11,7 @@ using namespace std;
 
 bool cmp(Pair p1, Pair p2)
 {
-	return (p1.val > p2.val)?true:false;
+	return (p1.val < p2.val)?true:false;
 }
 
 void Cluster::genTopkEigenVector(const string valpath, const string vecpath, const string output, const int row, const int col, const int k)

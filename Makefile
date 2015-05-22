@@ -5,7 +5,7 @@ ENTITY_PATH = ./Entity
 
 VPATH = $(MODEL_MATRIX_PATH):$(SERVICE_PATH):$(ENTITY_PATH)
 
-OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Pretreatment.o MovieReader.o MatrixOpt.o Cluster.o
+OBJ = test.o Link.o Movie.o Rating.o SparseMatriOpt.o RatingReader.o Reader.o Preprocess.o MovieReader.o MatrixOpt.o Cluster.o
 
 test : $(OBJ)
 	g++ $(OBJ) -o test
@@ -13,8 +13,11 @@ test : $(OBJ)
 test.o : test.cpp
 	g++ -c test.cpp
 
-Pretreatment.o : Pretreatment.cpp 
-	g++ -c Pretreatment.cpp
+main.o : mian.cpp
+	g++ -c main.cpp
+
+Preprocess.o : Preprocess.cpp 
+	g++ -c Preprocess.cpp
 
 Cluster.o : Cluster.cpp 
 	g++ -c Cluster.cpp

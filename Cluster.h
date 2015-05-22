@@ -8,7 +8,7 @@
 #include <string.h>
 
 const float MIN_RESIDUAL = 1;
-const float OP_RESIDUAL = 0.2;
+const float OP_RESIDUAL = 0.005;
 const int sparsity = 10;
 
 typedef struct pair
