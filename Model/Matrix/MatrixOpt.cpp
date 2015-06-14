@@ -149,10 +149,8 @@ void MatrixOpt::printToFile(string path)
 	int x = 0, y = 0;
 	for(x = 0; x < rows(); x++)
 	{
-		cout<<x<<endl;
 		for(y = 0; y < cols(); y++)
 		{
-//			cout<<"x:"<<x<<"  y:"<<y<<"  val:"<<get(x,y)<<endl;
 			fprintf(fout,"%-11.5f",get(x,y));
 		}
 		fprintf(fout,"\n");

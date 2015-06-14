@@ -10,46 +10,30 @@
 #include "Service/MovieReader.h"
 #include "Entity/Rating.h"
 #include "Entity/Rating.h"
-#include "Pretreatment.h"
+#include "Preprocess.h"
 #include "Cluster.h"
 
 using namespace std;
 
 int main()
 {
-	int col = 20;
-	int row = 20;
-/*	MatrixOpt sp(4, 6);
-	int num[24] = {1,2,1,4,5,9,
-		2,2,10,8,1,6,
-		1,8,1,4,2,6,
-		2,2,2,3,10,15};
+	int col = USER_NUM;
+	int row = MOVIE_NUM;
 
-	IMatrixOpt* im = &sp;
-	int n = 0;
-	for(int i = 0; i < im->rows(); i++)
-	{
-		for(int j = 0; j < im->cols(); j++)
-		{
-			im->set(i,j,num[n]);
-			n++;
-		}
-	}
-*/
-/*	MatrixOpt orimatrix(col, row);
-	orimatrix.readDateFromFile("./dim20-18-15-12.txt");
-	orimatrix.transpose();*/
+	MatrixOpt orimatrix(row, col);
+
+	Preprocess p;
+	p.createRatingMatrix(&orimatrix,RATING_FILE_PATH);
+	orimatrix.printToFile("./orimatrix");
 	MatrixOpt sem(col,col);
 	Cluster cl;
-//	cl.createSemMatrix(&orimatrix, &sem);
+	cl.createSemMatrix(&orimatrix, &sem);
 	sem.balance();
-
-	sem.readDateFromFile("./test.txt");
-
 	sem.printToFile("./matrix");
+	cout<<"Get SemMatrix!"<<endl;
 
 
-	MatrixOpt la(col, col);
+/*	MatrixOpt la(col, col);
 	cout<<"Get Matrix!"<<endl;
 	sem.genLaplacianMatrix(la);
 	cout<<"Get Laplacian!"<<endl;

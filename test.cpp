@@ -17,17 +17,43 @@ using namespace std;
 
 int main()
 {
-	int col = USER_NUM;
-	int row = MOVIE_NUM;
+	int col = 700;
+	int row = 700;
 
-	MatrixOpt orimatrix(row, col);
-//	orimatrix.readDateFromFile("./dim20-18-15-12.txt");
-	
-	MatrixOpt sem(col,col);
+
+	MatrixOpt sp(4, 6);
+	MatrixOpt sem(6, 6);
+	int num[24] = {1,2,1,4,5,9,
+		2,2,10,8,1,6,
+		1,8,1,4,2,6,
+		2,2,2,3,10,15};
+
+	IMatrixOpt* im = &sp;
+	int n = 0;
+	for(int i = 0; i < im->rows(); i++)
+	{
+		for(int j = 0; j < im->cols(); j++)
+		{
+			im->set(i,j,num[n]);
+			n++;
+		}
+	}
+
 	Cluster cl;
-//	cl.createSemMatrix(&orimatrix, &sem);
+	cl.createSemMatrix(&sp,&sem);
+	sem.print();
+
+/*	MatrixOpt orimatrix(col, row);
+	orimatrix.readDateFromFile("./dim20-18-15-12.txt");
+	orimatrix.transpose();*/
+/*	MatrixOpt sem(col,col);
+	Cluster cl;
+	cl.createSemMatrix(&orimatrix, &sem);
 	sem.balance();
-	sem.printToFile("../matrix");
+
+/*	sem.readDateFromFile("./normatrix");
+
+	sem.printToFile("./matrix");
 
 
 	MatrixOpt la(col, col);
